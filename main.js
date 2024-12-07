@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleCustomFields(document.getElementById("equipment"), document.getElementById("customEquipmentField"));
 
     // Calculate button logic
-    document.getElementById("calculate").addEventListener("click", function () {
+    document.getElementById("calculate").addEventListener("click", () => {
         const resultsDiv = document.getElementById("results");
         const placeholder = document.getElementById("placeholder");
         const userBudget = parseFloat(document.getElementById("userBudget").value);
 
-        // Remove the placeholder if it exists
+        // Remove placeholder text if it exists
         if (placeholder) {
             placeholder.remove();
         }
@@ -59,11 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const skiDays = Math.max(days - 2, 0);
 
+        // Retrieve dropdown values
         const location = document.getElementById("location").value;
         const budgetTier = document.getElementById("budgetTier").value;
         const equipment = document.getElementById("equipment").value;
 
-        // Calculate costs
+        // Initialize cost variables
         let accommodationCost = 0;
         let transportCost = 0;
         let liftTicketCost = 0;
@@ -71,10 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let transferCost = 0;
         let equipmentCost = 0;
 
+        // Location cost logic
         if (location === "custom") {
-            accommodationCost = (parseFloat(document.getElementById("customAccommodation").value) || 0) * (days - 1);
+            accommodationCost = (parseFloat(document.getElementById("customAccommodation").value) || 0) * Math.max(days - 1, 0);
             transportCost = parseFloat(document.getElementById("customTransport").value) || 0;
-            liftTicketCost = (parseFloat(document.getElementById("customLiftTickets").value) || 0) * skiDays; // Adjust lift tickets
+            liftTicketCost = (parseFloat(document.getElementById("customLiftTickets").value) || 0) * skiDays;
         } else {
             const locationCosts = {
                 local: { accommodation: 150, travel: 250, liftTicket: 200 },
@@ -83,18 +85,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 canada: { accommodation: 150, travel: 4000, liftTicket: 100 },
             };
             const locationData = locationCosts[location];
-            accommodationCost = (days - 1) * locationData.accommodation; // Adjust for days - 1
+            accommodationCost = Math.max(days - 1, 0) * locationData.accommodation;
             transportCost = locationData.travel;
-            liftTicketCost = skiDays * locationData.liftTicket; // Adjust lift tickets
+            liftTicketCost = skiDays * locationData.liftTicket;
         }
 
+        // Budget tier cost logic
         if (budgetTier === "custom") {
             foodCost = (parseFloat(document.getElementById("customFood").value) || 0) * days;
             transferCost = parseFloat(document.getElementById("customTransfers").value) || 0;
+        } else {
+            const budgetTierCosts = {
+                low: { foodPerDay: 20, transferPerDay: 30 },
+                mid: { foodPerDay: 50, transferPerDay: 60 },
+                high: { foodPerDay: 100, transferPerDay: 100 },
+            };
+            const budgetTierData = budgetTierCosts[budgetTier];
+            foodCost = budgetTierData.foodPerDay * days;
+            transferCost = budgetTierData.transferPerDay * days;
         }
 
+        // Equipment cost logic
         if (equipment === "custom") {
-            equipmentCost = (parseFloat(document.getElementById("customEquipment").value) || 0) * (days - 2); // Adjust for days - 2
+            equipmentCost = (parseFloat(document.getElementById("customEquipment").value) || 0) * Math.max(days - 2, 0);
         } else {
             const equipmentCosts = {
                 hire: { perDay: 80, flatFee: 0 },
@@ -102,12 +115,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 na: { perDay: 0, flatFee: 0 },
             };
             const equipmentData = equipmentCosts[equipment];
-            equipmentCost = Math.max(days - 2, 0) * equipmentData.perDay + equipmentData.flatFee; // Adjust for days - 2
+            equipmentCost = Math.max(days - 2, 0) * equipmentData.perDay + equipmentData.flatFee;
         }
 
+        // Calculate total cost
         const totalCost = accommodationCost + transportCost + liftTicketCost + foodCost + transferCost + equipmentCost;
 
-        // Compare total cost with budget
+        // Compare total cost with user budget
         const budgetComparison = userBudget - totalCost;
 
         // Display results
@@ -124,5 +138,20 @@ document.addEventListener("DOMContentLoaded", () => {
             <p>Difference: ${budgetComparison >= 0 ? "Under budget by" : "Over budget by"} $${Math.abs(budgetComparison).toFixed(2)}</p>
             <img src="./images/${budgetComparison >= 0 ? "happy_face.jpg" : "sad_face.jpg"}" alt="${budgetComparison >= 0 ? "Happy Face" : "Sad Face"}" style="width: 100px; margin-top: 20px;">
         `;
+    });
+
+    // Budget Tier Info Dialog Logic
+    const infoButton = document.getElementById("infoButton");
+    const dialogue = document.getElementById("dialogue");
+    const closeDialogue = document.getElementById("closeDialogue");
+
+    infoButton.addEventListener("click", () => {
+        document.body.classList.add("dialogue-open");
+        dialogue.classList.remove("hidden");
+    });
+
+    closeDialogue.addEventListener("click", () => {
+        document.body.classList.remove("dialogue-open");
+        dialogue.classList.add("hidden");
     });
 });

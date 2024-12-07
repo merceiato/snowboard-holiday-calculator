@@ -38,19 +38,32 @@
         </div>
       
         <!-- Budget Tier Dropdown -->
-        <label for="budgetTier">Budget Tier:</label>
-        <select id="budgetTier">
-          <option value="low">Low Budget</option>
-          <option value="mid">Mid Budget</option>
-          <option value="high">High Budget</option>
-          <option value="custom">Custom</option>
-        </select>
-        <div id="customBudgetTierFields" class="hidden">
-          <label for="customFood">Food ($/day):</label>
-          <input type="number" id="customFood" placeholder="Enter food cost">
-          <label for="customTransfers">Transfers ($):</label>
-          <input type="number" id="customTransfers" placeholder="Enter transfer cost">
-        </div>
+<label for="budgetTier">Budget Tier:</label>
+<div class="budget-container">
+  <select id="budgetTier">
+    <option value="low">Low Budget</option>
+    <option value="mid">Mid Budget</option>
+    <option value="high">High Budget</option>
+    <option value="custom">Custom</option>
+  </select>
+  <button type="button" id="infoButton" class="info-button">?</button>
+</div>
+<div id="customBudgetTierFields" class="hidden">
+  <label for="customFood">Food ($/day):</label>
+  <input type="number" id="customFood" placeholder="Enter food cost">
+  <label for="customTransfers">Transfers ($):</label>
+  <input type="number" id="customTransfers" placeholder="Enter transfer cost">
+</div>
+
+<!-- Dialogue Box for Budget Tier Information -->
+<div id="dialogue" class="dialogue hidden">
+  <h3>Budget Tier Details</h3>
+  <p><strong>Low Budget:</strong> Dorm-style accommodation, bus/train transfers, breakfast (Food: $20/day, Transfers: $30/day).</p>
+  <p><strong>Mid Budget:</strong> Hotel accommodation, minivan transfers, breakfast and dinner (Food: $50/day, Transfers: $60/day).</p>
+  <p><strong>High Budget:</strong> Penthouse accommodation, private transfers, breakfast, lunch, and dinner (Food: $100/day, Transfers: $100/day).</p>
+  <button type="button" id="closeDialogue" class="close-dialogue">Close</button>
+</div>
+
       
         <!-- Equipment Dropdown -->
         <label for="equipment">Equipment:</label>

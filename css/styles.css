@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   background-image: url('../images/background.jpg');
@@ -16,15 +17,15 @@ header {
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   font-size: 2rem;
-  word-wrap: break-word; /* Ensure long text wraps */
-  max-width: 100%; /* Prevent overflow */
-  box-sizing: border-box; /* Include padding in width calculations */
-  overflow-wrap: anywhere; /* Ensure text wraps within the container */
+  word-wrap: break-word;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 768px) {
   header {
-    font-size: 1.5rem; /* Reduce font size on smaller screens */
+    font-size: 1.5rem;
   }
 }
 
@@ -38,12 +39,12 @@ main {
 /* Form Styling */
 form {
   background: #f9f9f9;
-  padding: 20px; /* Adjust padding to create space inside the form */
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-size: 1rem;
   color: #333;
-  box-sizing: border-box; /* Ensure padding is included in the width */
+  box-sizing: border-box;
 }
 
 form label {
@@ -55,13 +56,13 @@ form label {
 form select,
 form input[type="number"],
 form button {
-  width: 100%; /* Ensure the elements take full width */
-  padding: 10px; /* Space inside the input field */
-  margin-bottom: 15px; /* Space below each input field */
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
-  box-sizing: border-box; /* Include padding and border in the width */
+  box-sizing: border-box;
 }
 
 form button {
@@ -69,14 +70,13 @@ form button {
   background-color: #007BFF;
   color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 form button:hover {
   background-color: #0056b3;
 }
 
-
-/* Disabled state for buttons */
 form button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
@@ -84,35 +84,45 @@ form button:disabled {
   box-shadow: none;
 }
 
-/* Input placeholders */
 form input::placeholder {
-  color: #999; /* Subtle placeholder text */
-  font-style: italic; /* Differentiate from input text */
+  color: #999;
+  font-style: italic;
 }
 
-/* Styling for dropdowns */
+/* Dropdown Styling */
 form select {
-  appearance: none; /* Remove default browser styling */
+  appearance: none;
   background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23333" d="M2 0L0 2h4zM2 5L0 3h4z"/></svg>');
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 12px;
 }
 
-/* Add a container class for all fields for alignment consistency */
+/* Custom Fields */
+#customLocationFields,
+#customBudgetTierFields,
+#customEquipmentField {
+  margin-top: 10px;
+}
+
 form .field-container {
   margin-bottom: 20px;
-  position: relative; /* For better layout control */
+  position: relative;
 }
 
-/* Responsive adjustments for smaller screens */
+.hidden {
+  display: none;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  form input, form select, form button {
-    padding: 10px; /* Reduce padding slightly for smaller screens */
-    font-size: 0.9rem; /* Adjust font size for better fit */
+  form input,
+  form select,
+  form button {
+    padding: 10px;
+    font-size: 0.9rem;
   }
 }
-
 
 /* Results Section */
 #results {
@@ -146,6 +156,7 @@ footer {
 /* Info Button Styling */
 .info-button {
   margin-top: auto;
+  margin-left: 10px;
   background-color: #ccc;
   color: #333;
   border: none;
@@ -160,6 +171,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.3s;
 }
 
 .info-button:hover {
@@ -190,8 +202,7 @@ footer {
 
 .dialogue h3 {
   margin-top: 0;
-  font-size: 1.5rem; /* Adjust font size for visibility */
-  word-wrap: break-word;
+  font-size: 1.5rem;
 }
 
 .dialogue button.close-dialogue {
@@ -225,21 +236,4 @@ body.dialogue-open::before {
   z-index: 999;
 }
 
-.hidden {
-  display: none;
-}
 
-#customLocationFields,
-#customBudgetTierFields,
-#customEquipmentField {
-  margin-top: 10px;
-}
-
-form input[type="number"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
