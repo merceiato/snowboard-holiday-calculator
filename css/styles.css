@@ -38,11 +38,12 @@ main {
 /* Form Styling */
 form {
   background: #f9f9f9;
-  padding: 20px;
+  padding: 20px; /* Adjust padding to create space inside the form */
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-size: 1rem;
   color: #333;
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 form label {
@@ -52,16 +53,19 @@ form label {
 }
 
 form select,
+form input[type="number"],
 form button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  width: 100%; /* Ensure the elements take full width */
+  padding: 10px; /* Space inside the input field */
+  margin-bottom: 15px; /* Space below each input field */
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
+  box-sizing: border-box; /* Include padding and border in the width */
 }
 
 form button {
+  margin-top: 30px;
   background-color: #007BFF;
   color: #fff;
   cursor: pointer;
@@ -71,24 +75,44 @@ form button:hover {
   background-color: #0056b3;
 }
 
-/* Center and Add Space for Date Picker */
-#dateRange {
-  display: flex;
-  justify-content: center;
-  margin: 20px auto;
-  padding-bottom: 20px;
+
+/* Disabled state for buttons */
+form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #777;
+  box-shadow: none;
 }
 
-.flatpickr-calendar {
-  margin: 0 auto;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+/* Input placeholders */
+form input::placeholder {
+  color: #999; /* Subtle placeholder text */
+  font-style: italic; /* Differentiate from input text */
 }
 
-/* Additional space between the calendar and the button */
-form button {
-  margin-top: 20px;
+/* Styling for dropdowns */
+form select {
+  appearance: none; /* Remove default browser styling */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23333" d="M2 0L0 2h4zM2 5L0 3h4z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
 }
+
+/* Add a container class for all fields for alignment consistency */
+form .field-container {
+  margin-bottom: 20px;
+  position: relative; /* For better layout control */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  form input, form select, form button {
+    padding: 10px; /* Reduce padding slightly for smaller screens */
+    font-size: 0.9rem; /* Adjust font size for better fit */
+  }
+}
+
 
 /* Results Section */
 #results {
@@ -199,4 +223,23 @@ body.dialogue-open::before {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
+}
+
+.hidden {
+  display: none;
+}
+
+#customLocationFields,
+#customBudgetTierFields,
+#customEquipmentField {
+  margin-top: 10px;
+}
+
+form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
 }

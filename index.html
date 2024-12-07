@@ -15,51 +15,67 @@
 
   <main>
     <form id="budgetForm">
-      <label for="location">Location:</label>
-      <select id="location">
-        <option value="local">AU Local</option>
-        <option value="interstate">AU Interstate</option>
-        <option value="japan">Japan</option>
-        <option value="canada">Canada</option>
-      </select>
-
-      <label for="budgetTier">Budget Tier:</label>
-        <div class="budget-container">
-        <select id="budgetTier">
-            <option value="low">Low Budget</option>
-            <option value="mid">Mid Budget</option>
-            <option value="high">High Budget</option>
+        <!-- Budget Field -->
+        <label for="userBudget">Enter Your Budget ($):</label>
+        <input type="number" id="userBudget" placeholder="Enter your budget" required>
+      
+        <!-- Location Dropdown -->
+        <label for="location">Location:</label>
+        <select id="location">
+          <option value="local">AU Local</option>
+          <option value="interstate">AU Interstate</option>
+          <option value="japan">Japan</option>
+          <option value="canada">Canada</option>
+          <option value="custom">Custom</option>
         </select>
-        <button type="button" id="infoButton" class="info-button">?</button>
+        <div id="customLocationFields" class="hidden">
+          <label for="customAccommodation">Accommodation ($/day):</label>
+          <input type="number" id="customAccommodation" placeholder="Enter accommodation cost">
+          <label for="customTransport">Transport ($):</label>
+          <input type="number" id="customTransport" placeholder="Enter transport cost">
+          <label for="customLiftTickets">Lift Tickets ($/day):</label>
+          <input type="number" id="customLiftTickets" placeholder="Enter lift ticket cost">
         </div>
-
-        <div id="dialogue" class="dialogue hidden">
-        <h3>Budget Tier Details</h3>
-        <p><strong>Low Budget:</strong> Dorm-style accommodation, bus/train transfers, breakfast.</p>
-        <p><strong>Mid Budget:</strong> Train or minivan transfers, hotel-style accommodation, breakfast and dinner.</p>
-        <p><strong>High Budget:</strong> Private chauffeur transfers, penthouse accommodation, breakfast, lunch, and dinner.</p>
-        <button type="button" id="closeDialogue" class="close-dialogue">Close</button>
+      
+        <!-- Budget Tier Dropdown -->
+        <label for="budgetTier">Budget Tier:</label>
+        <select id="budgetTier">
+          <option value="low">Low Budget</option>
+          <option value="mid">Mid Budget</option>
+          <option value="high">High Budget</option>
+          <option value="custom">Custom</option>
+        </select>
+        <div id="customBudgetTierFields" class="hidden">
+          <label for="customFood">Food ($/day):</label>
+          <input type="number" id="customFood" placeholder="Enter food cost">
+          <label for="customTransfers">Transfers ($):</label>
+          <input type="number" id="customTransfers" placeholder="Enter transfer cost">
         </div>
-
-
+      
+        <!-- Equipment Dropdown -->
         <label for="equipment">Equipment:</label>
         <select id="equipment">
           <option value="hire">Hire</option>
-          <option value="gearTransport">Gear transport</option>
+          <option value="gearTransport">Gear Transport</option>
           <option value="na">N/A</option>
+          <option value="custom">Custom</option>
         </select>
-        
-
-      <label for="dateRange">Select Date Range:</label>
-      <div id="dateRange"></div>
-
-      <button type="button" id="calculate">Calculate</button>
-    </form>
-
-    <div id="results">
+        <div id="customEquipmentField" class="hidden">
+          <label for="customEquipment">Equipment ($):</label>
+          <input type="number" id="customEquipment" placeholder="Enter equipment cost">
+        </div>
+      
+        <label for="dateRange">Select Date Range:</label>
+        <div id="dateRange"></div>
+      
+        <button type="button" id="calculate">Calculate</button>
+      </form>
+      
+      <div id="results">
         <h2>Results</h2>
         <p id="placeholder">Please make your selections and press Calculate.</p>
-    </div>
+      </div>
+      
   </main>
 
   <footer>
