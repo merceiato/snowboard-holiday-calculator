@@ -1,0 +1,202 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('../images/background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styling */
+header {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 2rem;
+  word-wrap: break-word; /* Ensure long text wraps */
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box; /* Include padding in width calculations */
+  overflow-wrap: anywhere; /* Ensure text wraps within the container */
+}
+
+@media (max-width: 768px) {
+  header {
+    font-size: 1.5rem; /* Reduce font size on smaller screens */
+  }
+}
+
+/* Main Content */
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Form Styling */
+form {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  color: #333;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+form select,
+form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Center and Add Space for Date Picker */
+#dateRange {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  padding-bottom: 20px;
+}
+
+.flatpickr-calendar {
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Additional space between the calendar and the button */
+form button {
+  margin-top: 20px;
+}
+
+/* Results Section */
+#results {
+  margin-top: 20px;
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#results h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+/* Budget Tier Container */
+.budget-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Info Button Styling */
+.info-button {
+  margin-top: auto;
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-button:hover {
+  background-color: #aaa;
+}
+
+/* Dialogue Box Styling */
+.dialogue {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 90%; /* Use 90% of viewport width */
+  max-width: 400px; /* Limit maximum width */
+  max-height: 80%; /* Prevent overflow vertically */
+  overflow-y: auto; /* Enable scrolling for overflowing content */
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.dialogue.hidden {
+  display: none;
+}
+
+.dialogue h3 {
+  margin-top: 0;
+  font-size: 1.5rem; /* Adjust font size for visibility */
+  word-wrap: break-word;
+}
+
+.dialogue button.close-dialogue {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
+.dialogue button.close-dialogue:hover {
+  background-color: #c9302c;
+}
+
+/* Overlay Effect for Dialogue */
+body.dialogue-open {
+  overflow: hidden;
+}
+
+body.dialogue-open::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}

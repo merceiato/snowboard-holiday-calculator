@@ -1,0 +1,44 @@
+// Inputs
+Prompt user to select:
+  - Location (Dropdown: AU Local, AU Interstate, Japan, Canada, Custom)
+  - Budget Tier (Dropdown: Low, Mid, High, Custom)
+  - Equipment Option (Dropdown: Hire, BYO, Custom)
+  - Start Date (Date Picker)
+  - End Date (Date Picker)
+
+If "Custom" is selected in any dropdown:
+  - Display additional input fields for the user to enter custom values:
+    - Custom Accommodation Cost
+    - Custom Travel Cost
+    - Custom Equipment Cost
+    - Custom Lift Ticket Cost
+
+User clicks "Calculate" button
+
+// Processing
+Validate inputs:
+  - Use custom values if provided, otherwise use predefined values based on the dropdown selection
+
+Calculate trip duration:
+  - days = (End Date - Start Date)
+  - skiDays = max(days - 2, 0)
+
+Calculate subtotal costs using custom or predefined values:
+  - accommodationCost = custom value or days * predefined value
+  - travelCost = custom value or predefined value
+  - equipmentCost = custom value or predefined value
+  - liftTicketCost = custom value or skiDays * predefined value
+
+Calculate total expenses:
+  - totalBeforeGST = baseExpenses * (1 + budgetMultiplier)
+  - gst = totalBeforeGST * 0.1
+  - totalExpenses = totalBeforeGST + gst
+
+// Outputs
+Display each item in results:
+  - Accommodation: $accommodationCost
+  - Travel: $travelCost
+  - Equipment: $equipmentCost
+  - Lift Tickets: $liftTicketCost
+  - GST (10%): $gst
+  - Total Cost: $totalExpenses
