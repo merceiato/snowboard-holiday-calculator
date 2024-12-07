@@ -15,40 +15,50 @@
 
   <main>
     <form id="budgetForm">
+      <label for="userBudget">Enter Your Budget ($):</label>
+      <input type="number" id="userBudget" placeholder="Enter your budget" required>
+
       <label for="location">Location:</label>
       <select id="location">
         <option value="local">AU Local</option>
         <option value="interstate">AU Interstate</option>
         <option value="japan">Japan</option>
         <option value="canada">Canada</option>
+        <option value="custom">Custom</option>
       </select>
+      <div id="customLocationFields" class="hidden">
+        <input type="number" id="customAccommodation" placeholder="Custom Accommodation Cost ($)">
+        <input type="number" id="customTravel" placeholder="Custom Travel Cost ($)">
+      </div>
 
       <label for="budgetTier">Budget Tier:</label>
-        <div class="budget-container">
+      <div class="budget-container">
         <select id="budgetTier">
-            <option value="low">Low Budget</option>
-            <option value="mid">Mid Budget</option>
-            <option value="high">High Budget</option>
+          <option value="low">Low Budget</option>
+          <option value="mid">Mid Budget</option>
+          <option value="high">High Budget</option>
+          <option value="custom">Custom</option>
         </select>
         <button type="button" id="infoButton" class="info-button">?</button>
-        </div>
-
-        <div id="dialogue" class="dialogue hidden">
+      </div>
+      <div id="dialogue" class="dialogue hidden">
         <h3>Budget Tier Details</h3>
         <p><strong>Low Budget:</strong> Dorm-style accommodation, bus/train transfers, breakfast.</p>
         <p><strong>Mid Budget:</strong> Train or minivan transfers, hotel-style accommodation, breakfast and dinner.</p>
         <p><strong>High Budget:</strong> Private chauffeur transfers, penthouse accommodation, breakfast, lunch, and dinner.</p>
         <button type="button" id="closeDialogue" class="close-dialogue">Close</button>
-        </div>
+      </div>
 
-
-        <label for="equipment">Equipment:</label>
-        <select id="equipment">
-          <option value="hire">Hire</option>
-          <option value="gearTransport">Gear transport</option>
-          <option value="na">N/A</option>
-        </select>
-        
+      <label for="equipment">Equipment:</label>
+      <select id="equipment">
+        <option value="hire">Hire</option>
+        <option value="gearTransport">Gear Transport</option>
+        <option value="na">N/A</option>
+        <option value="custom">Custom</option>
+      </select>
+      <div id="customEquipmentField" class="hidden">
+        <input type="number" id="customEquipment" placeholder="Custom Equipment Cost ($)">
+      </div>
 
       <label for="dateRange">Select Date Range:</label>
       <div id="dateRange"></div>
@@ -57,8 +67,8 @@
     </form>
 
     <div id="results">
-        <h2>Results</h2>
-        <p id="placeholder">Please make your selections and press Calculate.</p>
+      <h2>Results</h2>
+      <p id="placeholder">Please make your selections and press Calculate.</p>
     </div>
   </main>
 

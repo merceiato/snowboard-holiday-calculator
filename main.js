@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <h3>Total Cost: $${totalExpenses.toFixed(2)}</h3>
             <p>Your Budget: $${userBudget.toFixed(2)}</p>
             <p>Difference: ${budgetComparison >= 0 ? "You are under budget by" : "You are over budget by"} $${Math.abs(budgetComparison).toFixed(2)}</p>
-            <img src="./images/${budgetComparison >= 0 ? "happy_face.png" : "sad_face.png"}" alt="${
+            <img src="./images/${budgetComparison >= 0 ? "happy_face.jpg" : "sad_face.jpg"}" alt="${
             budgetComparison >= 0 ? "Happy Face" : "Sad Face"
         }" style="width: 100px; margin-top: 20px;">
         `;
