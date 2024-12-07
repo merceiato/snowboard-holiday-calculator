@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
     });
 
-    // Toggle custom input fields based on dropdown selection
+    // Function to toggle custom fields
     const toggleCustomFields = (dropdown, customFieldsContainer) => {
         dropdown.addEventListener("change", () => {
             if (dropdown.value === "custom") {
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
+    // Apply toggle logic to dropdowns
     toggleCustomFields(document.getElementById("location"), document.getElementById("customLocationFields"));
     toggleCustomFields(document.getElementById("budgetTier"), document.getElementById("customBudgetTierFields"));
     toggleCustomFields(document.getElementById("equipment"), document.getElementById("customEquipmentField"));
@@ -36,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const placeholder = document.getElementById("placeholder");
         const userBudget = parseFloat(document.getElementById("userBudget").value);
 
-        // Remove placeholder text if it exists
+        // Remove placeholder text
         if (placeholder) {
             placeholder.remove();
         }

@@ -1,15 +1,26 @@
 # Snowboarding Holiday Budget Calculator
 
 ## Description
-This project is a single-page JavaScript application designed to calculate the budget for a snowboarding holiday. Users can input their starting budget, choose between local or overseas locations, select a budget tier (High-end, Mid, Budget), decide on equipment options (Hire or BYO), and specify trip dates. The application calculates the total expenses, net result, and provides a breakdown of costs.
+The Snowboarding Holiday Budget Calculator is an interactive web application that helps users plan their snowboarding trips by calculating total costs and comparing them against a user-defined budget. Users can select locations, budget tiers, and equipment options, specify custom costs if needed, and input travel dates. The app dynamically calculates expenses and provides a detailed breakdown, displaying a happy or sad face depending on whether the budget is sufficient.
 
 ## Features
-- Interactive form for user inputs
-- Dynamic calculation of expenses and net result
-- Displays different images based on budget outcome (positive or negative)
-- A fun and visually engaging theme with a snow-capped mountain background
+- **Customizable Inputs**:
+  - Locations: Predefined options (AU Local, Interstate, Japan, Canada) and custom input.
+  - Budget Tiers: Low, Mid, High, or custom.
+  - Equipment Options: Hire, Gear Transport, N/A, or custom.
+- **Interactive Calculations**:
+  - Automatically calculates costs based on trip details.
+  - Option to input custom costs for flexibility.
+- **Dynamic Feedback**:
+  - Displays happy or sad face images based on budget outcome.
+- **User-Friendly Design**:
+  - Simple and responsive interface with a snow-capped mountain theme.
+  - Hover and click effects for enhanced user experience.
+- **Informative Dialogue**:
+  - Provides details on budget tier options via a popup dialogue.
 
 ## Folder Structure
+
 project-folder/
 │
 ├── index.html
@@ -17,49 +28,62 @@ project-folder/
 ├── main.js
 └── images/
     ├── background.jpg (Snow-capped mountains)
-    ├── happy_face.png
-    └── sad_face.png
+    ├── happy_face.jpg
+    └── sad_face.jpg
 
 
 ## How to Use
-1. **Unzip the Project Folder**: Extract the contents of the project folder to your desired location.
+### 1. **Unzip the Project Folder**
+   Extract the contents of the project folder to your desired location.
 
-2. **Set Up a Python Virtual Environment**:
+### 2. **Run a Local Server**
+   Use Python’s built-in HTTP server to serve the application locally:
    - Open a terminal or command prompt in the project folder.
-   - Create a virtual environment by running:
-     
-     python3 -m venv env
-     
-   - Activate the virtual environment:
-     - **On macOS/Linux**:
-       
-       source env/bin/activate
-       
-     - **On Windows**:
-       
-       .\env\Scripts\activate
-       
-   - Install any required dependencies (if applicable). This project does not require any Python dependencies but setting up the environment ensures isolation for potential future requirements.
-
-3. **Run a Local Server**:
-   - With the virtual environment active, run Python’s built-in HTTP server:
+   - Run the following command:
      
      python3 -m http.server
      
-   - Navigate to http://localhost:8000 in your browser.
+   - Navigate to `http://localhost:8000` in your browser to load the application.
 
-4. **Open the Application**:
-   - Load the `index.html` file in your browser to start the calculator.
+### 3. **Open the Application**
+   - Load the `index.html` file in your browser.
 
-5. **Input Data**:
-   - Fill in the form fields, choose your options, and press "Calculate."
+### 4. **Fill in the Form**
+   - Enter your budget and trip details:
+     - Select a location or input custom costs.
+     - Choose a budget tier or provide custom costs for food and transfers.
+     - Decide on equipment options or specify custom costs.
+     - Pick a date range for your trip.
 
-6. **View Results**:
-   - Review the total expenses, net result, and cost breakdown in the results section.
+### 5. **Calculate Costs**
+   - Press the "Calculate" button to view the results.
 
-7. **Reset**:
-   - Refresh the browser to reset the form.
+### 6. **View Results**
+   - Review the detailed breakdown of costs:
+     - Accommodation
+     - Transport
+     - Lift Tickets
+     - Food
+     - Transfers
+     - Equipment
+   - Compare the total cost against your budget.
+
+### 7. **Reset**
+   - Refresh the page to reset all inputs.
 
 ## Notes
-- Ensure all files remain in the correct folder structure for images and links to work.
-- For best performance, use the latest version of Chrome, Firefox, or Edge browsers.# snowboard-holiday-calculator
+- **Custom Fields**:
+  - Additional fields appear dynamically when "Custom" is selected in any dropdown.
+- **Budget Tier Details**:
+  - Click the "?" button next to the Budget Tier dropdown to view descriptions of each tier.
+- **Browser Compatibility**:
+  - For optimal performance, use the latest version of Chrome, Firefox, or Edge.
+- **Local Server Requirement**:
+  - Ensure the application is served via a local server to load assets correctly (e.g., images).
+
+## Future Enhancements
+- Add a reset button for clearing inputs without refreshing the page.
+- Include more predefined locations and budget tiers.
+- Add accessibility features for improved usability.
+
+Enjoy planning your snowboarding trip!
