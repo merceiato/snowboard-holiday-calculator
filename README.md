@@ -3,6 +3,8 @@
 ## Description
 The Snowboarding Holiday Budget Calculator is an interactive web application that helps users plan their snowboarding trips by calculating total costs and comparing them against a user-defined budget. Users can select locations, budget tiers, and equipment options, specify custom costs if needed, and input travel dates. The app dynamically calculates expenses and provides a detailed breakdown, displaying a happy or sad face depending on whether the budget is sufficient.
 
+---
+
 ## Features
 - **Customizable Inputs**:
   - Locations: Predefined options (AU Local, Interstate, Japan, Canada) and custom input.
@@ -19,7 +21,10 @@ The Snowboarding Holiday Budget Calculator is an interactive web application tha
 - **Informative Dialogue**:
   - Provides details on budget tier options via a popup dialogue.
 
+---
+
 ## Folder Structure
+
 
 project-folder/
 │
@@ -32,21 +37,46 @@ project-folder/
     └── sad_face.jpg
 
 
+---
+
 ## How to Use
 ### 1. **Unzip the Project Folder**
    Extract the contents of the project folder to your desired location.
 
-### 2. **Run a Local Server**
-   Use Python’s built-in HTTP server to serve the application locally:
-   - Open a terminal or command prompt in the project folder.
-   - Run the following command:
-     
-     python3 -m http.server
-     
-   - Navigate to `http://localhost:8000` in your browser to load the application.
+---
+
+### 2. **Set Up and Run in a Python Virtual Environment**
+   Running the project in a Python virtual environment ensures an isolated and clean setup.
+
+   #### Step 1: Set Up the Virtual Environment
+   1. Open a terminal or command prompt in the project folder.
+   2. Run the following command to create a virtual environment:
+      
+      python3 -m venv env
+      
+   3. Activate the virtual environment:
+      - **On macOS/Linux**:
+        
+        source env/bin/activate
+        
+      - **On Windows**:
+        
+        .\env\Scripts\activate
+        
+
+   #### Step 2: Run the Local Server
+   1. With the virtual environment active, run:
+      
+      python3 -m http.server
+      
+   2. Navigate to `http://localhost:8000` in your browser to load the application.
+
+---
 
 ### 3. **Open the Application**
    - Load the `index.html` file in your browser.
+
+---
 
 ### 4. **Fill in the Form**
    - Enter your budget and trip details:
@@ -55,8 +85,12 @@ project-folder/
      - Decide on equipment options or specify custom costs.
      - Pick a date range for your trip.
 
+---
+
 ### 5. **Calculate Costs**
    - Press the "Calculate" button to view the results.
+
+---
 
 ### 6. **View Results**
    - Review the detailed breakdown of costs:
@@ -68,8 +102,12 @@ project-folder/
      - Equipment
    - Compare the total cost against your budget.
 
+---
+
 ### 7. **Reset**
    - Refresh the page to reset all inputs.
+
+---
 
 ## Notes
 - **Custom Fields**:
@@ -81,9 +119,11 @@ project-folder/
 - **Local Server Requirement**:
   - Ensure the application is served via a local server to load assets correctly (e.g., images).
 
+---
+
 ## Future Enhancements
 - Add a reset button for clearing inputs without refreshing the page.
 - Include more predefined locations and budget tiers.
 - Add accessibility features for improved usability.
 
-Enjoy planning your snowboarding trip!
+---
