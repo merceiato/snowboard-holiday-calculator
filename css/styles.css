@@ -23,6 +23,8 @@ header {
   overflow-wrap: anywhere;
 }
 
+
+
 @media (max-width: 768px) {
   header {
     font-size: 1.5rem;
@@ -38,6 +40,9 @@ main {
 
 /* Form Styling */
 form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontally center all child elements */
   background: #f9f9f9;
   padding: 20px;
   border-radius: 10px;
@@ -46,6 +51,13 @@ form {
   color: #333;
   box-sizing: border-box;
 }
+
+#dateRange {
+  width: fit-content; /* Shrink to the content size */
+  margin: 0; /* Reset margin */
+  display: block; /* Ensure proper block behavior */
+}
+
 
 form label {
   display: block;
@@ -151,6 +163,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 100%;
 }
 
 /* Info Button Styling */
@@ -235,3 +248,4 @@ body.dialogue-open::before {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
+
