@@ -42,12 +42,12 @@ Calculate costs using custom or predefined values:
     - custom value or (days - 2) * predefined value + flat fee (if applicable)
 
 Predefined values:
-  - **Location**:
+  - **Locations**:
     - AU Local: Accommodation = 150/day, Travel = 250, Lift Tickets = 200/day
     - AU Interstate: Accommodation = 150/day, Travel = 700, Lift Tickets = 200/day
     - Japan: Accommodation = 150/day, Travel = 1800, Lift Tickets = 80/day
     - Canada: Accommodation = 150/day, Travel = 4000, Lift Tickets = 100/day
-  - **Budget Tier**:
+  - **Budget Tiers**:
     - Low: Food = 20/day, Transfers = 30/day
     - Mid: Food = 50/day, Transfers = 60/day
     - High: Food = 100/day, Transfers = 100/day
@@ -56,24 +56,41 @@ Predefined values:
     - Gear Transport: Flat Fee = 200
     - N/A: 0
 
-Calculate total expenses:
-  - totalCost = accommodationCost + travelCost + liftTicketCost + foodCost + transferCost + equipmentCost
+Generate an itemized list of expenses for non-custom options:
+  - Location: List Accommodation, Travel, and Lift Ticket costs per day.
+  - Budget Tier: List Food and Transfer costs per day.
+  - Equipment: List Hire or Gear Transport costs per day.
 
-Compare total expenses with user's budget:
+Calculate totals:
+  - Total Cost = sum of all expenses
+  - Average Cost per Category = Total Cost / 6
+
+Compare total cost with user budget:
   - budgetDifference = userBudget - totalCost
-  - Determine if under or over budget
 
 // Outputs
 Display each item in the results:
   - Accommodation: $accommodationCost
-  - Travel: $travelCost
+  - Transport: $transportCost
   - Lift Tickets: $liftTicketCost
   - Food: $foodCost
   - Transfers: $transferCost
   - Equipment: $equipmentCost
   - Total Cost: $totalCost
+  - Average Cost per Category: $totalCost / 6
   - User Budget: $userBudget
-  - Difference: Indicate if under or over budget and by how much
+  - Difference: Indicate if under or over budget and by how much (Net)
+
+Display itemized expenses for non-custom options:
+  - Location Breakdown (if applicable):
+    - Accommodation: $X/day
+    - Travel: $Y
+    - Lift Tickets: $Z/day
+  - Budget Tier Breakdown (if applicable):
+    - Food: $X/day
+    - Transfers: $Y/day
+  - Equipment Breakdown (if applicable):
+    - Hire or Gear Transport: $X/day or Flat Fee $Y
 
 If under budget:
   - Display a happy face image

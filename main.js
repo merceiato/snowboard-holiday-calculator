@@ -73,6 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let transferCost = 0;
         let equipmentCost = 0;
 
+        // Itemized breakdown variables
+        let locationBreakdown = "";
+        let budgetTierBreakdown = "";
+        let equipmentBreakdown = "";
+
         // Location cost logic
         if (location === "custom") {
             accommodationCost = (parseFloat(document.getElementById("customAccommodation").value) || 0) * Math.max(days - 1, 0);
@@ -89,6 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
             accommodationCost = Math.max(days - 1, 0) * locationData.accommodation;
             transportCost = locationData.travel;
             liftTicketCost = skiDays * locationData.liftTicket;
+
+            locationBreakdown = `
+                <ul>
+                    <li>Accommodation: $150/day</li>
+                    <li>Travel: $${locationData.travel}</li>
+                    <li>Lift Tickets: $${locationData.liftTicket}/day</li>
+                </ul>`;
         }
 
         // Budget tier cost logic
@@ -104,6 +116,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const budgetTierData = budgetTierCosts[budgetTier];
             foodCost = budgetTierData.foodPerDay * days;
             transferCost = budgetTierData.transferPerDay * days;
+
+            budgetTierBreakdown = `
+                <ul>
+                    <li>Food: $${budgetTierData.foodPerDay}/day</li>
+                    <li>Transfers: $${budgetTierData.transferPerDay}/day</li>
+                </ul>`;
         }
 
         // Equipment cost logic
@@ -117,6 +135,11 @@ document.addEventListener("DOMContentLoaded", () => {
             };
             const equipmentData = equipmentCosts[equipment];
             equipmentCost = Math.max(days - 2, 0) * equipmentData.perDay + equipmentData.flatFee;
+
+            equipmentBreakdown = `
+                <ul>
+                    <li>${equipment === "hire" ? `Hire: $80/day` : "Gear Transport: Flat Fee $200"}</li>
+                </ul>`;
         }
 
         // Calculate total cost
@@ -127,7 +150,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Display results
         resultsDiv.innerHTML = `
-            <h2>Results</h2>
+            <h1>Results</h1>
+
+            ${locationBreakdown ? `<h2>Expense per day</h2>` : ""}
+            ${locationBreakdown ? `<h3>Location Breakdown:</h3>${locationBreakdown}` : ""}
+            ${budgetTierBreakdown ? `<h3>Budget Tier Breakdown:</h3>${budgetTierBreakdown}` : ""}
+            ${equipmentBreakdown ? `<h3>Equipment Breakdown:</h3>${equipmentBreakdown}` : ""}
+
+            <h2>Expense Totals</h2>
             <p>Accommodation: $${accommodationCost.toFixed(2)}</p>
             <p>Transport: $${transportCost.toFixed(2)}</p>
             <p>Lift Tickets: $${liftTicketCost.toFixed(2)}</p>
@@ -136,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p>Equipment: $${equipmentCost.toFixed(2)}</p>
             <h3>Total Cost: $${totalCost.toFixed(2)}</h3>
             <p>Your Budget: $${userBudget.toFixed(2)}</p>
-            <p>Difference: ${budgetComparison >= 0 ? "Under budget by" : "Over budget by"} $${Math.abs(budgetComparison).toFixed(2)}</p>
+            <p>Difference: ${budgetComparison >= 0 ? "$" : "$ -"} ${Math.abs(budgetComparison).toFixed(2)}</p>
             <img src="./images/${budgetComparison >= 0 ? "happy_face.jpg" : "sad_face.jpg"}" alt="${budgetComparison >= 0 ? "Happy Face" : "Sad Face"}" style="width: 100px; margin-top: 20px;">
         `;
     });
